@@ -22,16 +22,16 @@ text_layer_set_text(s_time_layer, s_buffer);
 
 static void tick_handler(struct tm *tick_time, TimeUnits units_changed) {
   
-static const uint32_t KEY_TEAM_610 = 1444;
+static const uint32_t KEY_TEAM_610 = 1041;
 static const char *VALUE_610 = "The Coyotes";
   
-static const uint32_t KEY_TEAM_746 = 746;
+static const uint32_t KEY_TEAM_746 = 1042;
 static const char *VALUE_746 = "Gearheads";
   
-static const uint32_t KEY_TEAM_857 = 857;
+static const uint32_t KEY_TEAM_857 = 1053;
 static const char *VALUE_857 = "Superior Roboworks";
   
-static const uint32_t KEY_TEAM_907 = 907;
+static const uint32_t KEY_TEAM_907 = 1044;
 static const char *VALUE_907 = "The Cybernauts";
   
 static const uint32_t KEY_TEAM_919 = 919;
@@ -122,16 +122,27 @@ while (tuple) {
   
   static char s_buffer[64];
   
-  snprintf(s_buffer, sizeof(s_buffer), "%s", tuple->value->cstring);
+  //snprintf(s_buffer, sizeof(s_buffer), "%s", tuple->value->cstring);
   
   if(tick_time->tm_hour*100+tick_time->tm_min == (int)tuple->key){
     
+    APP_LOG(APP_LOG_LEVEL_DEBUG, "this ran");
+    
+    snprintf(s_buffer, sizeof(s_buffer), "%s", tuple->value->cstring);
+    
+    APP_LOG(APP_LOG_LEVEL_DEBUG, "this ran 2");
+    
     text_layer_set_font(s_time_layer, fonts_get_system_font(FONT_KEY_GOTHIC_28_BOLD));
     text_layer_set_text(s_time_layer, s_buffer);
+    
+    APP_LOG(APP_LOG_LEVEL_DEBUG, "this ran 3");
+    
+    break;
 
   }else{
     text_layer_set_font(s_time_layer, fonts_get_system_font(FONT_KEY_BITHAM_42_BOLD));
     update_time();
+    APP_LOG(APP_LOG_LEVEL_DEBUG, "this did no run");
   }
   tuple = dict_read_next(&iter);
   }
@@ -147,7 +158,7 @@ static void main_window_load(Window *window) {
   s_background_bitmap = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_BACKGROUND);
 
   // Create BitmapLayer to display the GBitmap
-  s_background_layer = bitmap_layer_create(bounds);
+  s_background_layer = bitmap_layer_create(GRect(0, /*PBL_IF_ROUND_ELSE(58, 52)*/ 0.5, bounds.size.w, 150));
 
   // Set the bitmap onto the layer and add to the window
   bitmap_layer_set_bitmap(s_background_layer, s_background_bitmap);
@@ -155,7 +166,7 @@ static void main_window_load(Window *window) {
 
   // Create the TextLayer with specific bounds
   s_time_layer = text_layer_create(
-      GRect(0, /*PBL_IF_ROUND_ELSE(58, 52)*/ 115, bounds.size.w, 50));
+      GRect(0, /*PBL_IF_ROUND_ELSE(58, 52)*/ 110, bounds.size.w, 150));
 
   // Improve the layout to be more like a watchface
   text_layer_set_background_color(s_time_layer, GColorClear);
@@ -163,6 +174,7 @@ static void main_window_load(Window *window) {
   text_layer_set_text(s_time_layer, "ballsohard");
   text_layer_set_text_alignment(s_time_layer, GTextAlignmentCenter);
   text_layer_set_font(s_time_layer, fonts_get_system_font(FONT_KEY_BITHAM_42_BOLD));
+  text_layer_set_overflow_mode(s_time_layer, GTextOverflowModeWordWrap);
   //text_layer_set_font(s_time_layer, fonts_get_system_font(FONT_KEY_GOTHIC_28_BOLD));
   // Create GFont
   //s_time_font = fonts_load_custom_font(resource_get_handle(FONT_KEY_BITHAM_42_BOLD));
