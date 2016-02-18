@@ -22,16 +22,16 @@ text_layer_set_text(s_time_layer, s_buffer);
 
 static void tick_handler(struct tm *tick_time, TimeUnits units_changed) {
   
-static const uint32_t KEY_TEAM_610 = 1041;
+static const uint32_t KEY_TEAM_610 = 610;
 static const char *VALUE_610 = "The Coyotes";
   
-static const uint32_t KEY_TEAM_746 = 1042;
+static const uint32_t KEY_TEAM_746 = 746;
 static const char *VALUE_746 = "Gearheads";
   
-static const uint32_t KEY_TEAM_857 = 1053;
+static const uint32_t KEY_TEAM_857 = 857;
 static const char *VALUE_857 = "Superior Roboworks";
   
-static const uint32_t KEY_TEAM_907 = 1044;
+static const uint32_t KEY_TEAM_907 = 907;
 static const char *VALUE_907 = "The Cybernauts";
   
 static const uint32_t KEY_TEAM_919 = 919;
@@ -158,7 +158,7 @@ static void main_window_load(Window *window) {
   s_background_bitmap = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_BACKGROUND);
 
   // Create BitmapLayer to display the GBitmap
-  s_background_layer = bitmap_layer_create(GRect(0, /*PBL_IF_ROUND_ELSE(58, 52)*/ 0.5, bounds.size.w, 150));
+  s_background_layer = bitmap_layer_create(GRect(0, PBL_IF_ROUND_ELSE(5, 1), bounds.size.w, 150));
 
   // Set the bitmap onto the layer and add to the window
   bitmap_layer_set_bitmap(s_background_layer, s_background_bitmap);
