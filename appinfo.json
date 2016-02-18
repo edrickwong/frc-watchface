@@ -1,0 +1,27 @@
+{
+    "appKeys": {},
+    "capabilities": [
+        ""
+    ],
+    "companyName": "wong.edrick@gmail.com",
+    "enableMultiJS": false,
+    "longName": "FRC",
+    "projectType": "native",
+    "resources": {
+        "media": [
+            {
+                "file": "images/frc.png",
+                "name": "IMAGE_BACKGROUND",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            }
+        ]
+    },
+    "sdkVersion": "3",
+    "shortName": "FRC",
+    "uuid": "343445a3-8ea5-4285-a282-d88685ff7c7e",
+    "versionLabel": "1.0",
+    "watchapp": {
+        "watchface": false
+    }
+}
