@@ -22,6 +22,9 @@ text_layer_set_text(s_time_layer, s_buffer);
 
 static void tick_handler(struct tm *tick_time, TimeUnits units_changed) {
   
+static const uint32_t KEY_TEAM_254 = 254;
+static const char *VALUE_254 = "The Cheesy Poofs";
+  
 static const uint32_t KEY_TEAM_610 = 610;
 static const char *VALUE_610 = "The Coyotes";
   
@@ -43,7 +46,7 @@ static const char *VALUE_1114 = "Simbotics";
 static const uint32_t KEY_TEAM_1241 = 1241;
 static const char *VALUE_1241 = "THEORY6";
   
-static const uint32_t KEY_TEAM_1246 = 1305;
+static const uint32_t KEY_TEAM_1246 = 1246;
 static const char *VALUE_1246 = "Agincourt Lancers";
   
 static const uint32_t KEY_TEAM_1305 = 1305;
@@ -71,6 +74,7 @@ static const char *VALUE_2013 = "Cybergnomes";
 const uint8_t key_count = 15;
 
 const uint32_t size = dict_calc_buffer_size(key_count, strlen(VALUE_610) + 1,
+                                           strlen(VALUE_254) + 1,
                                            strlen(VALUE_746) + 1,
                                            strlen(VALUE_857) + 1,
                                            strlen(VALUE_907) + 1,
@@ -97,6 +101,7 @@ DictionaryIterator iter;
 // Begin:
 dict_write_begin(&iter, buffer, sizeof(buffer));
 
+dict_write_cstring(&iter, KEY_TEAM_254, VALUE_254);  
 dict_write_cstring(&iter, KEY_TEAM_610, VALUE_610);
 dict_write_cstring(&iter, KEY_TEAM_746, VALUE_746);
 dict_write_cstring(&iter, KEY_TEAM_857, VALUE_857);
