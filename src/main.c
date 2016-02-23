@@ -142,6 +142,8 @@ while (tuple) {
     
     APP_LOG(APP_LOG_LEVEL_DEBUG, "this ran 3");
     
+    
+    vibes_long_pulse();
     break;
 
   }else{
