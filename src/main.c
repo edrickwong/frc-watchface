@@ -69,9 +69,12 @@ static const char *VALUE_1815 = "Black Scots";
     
 static const uint32_t KEY_TEAM_2013 = 2013;
 static const char *VALUE_2013 = "Cybergnomes";
+  
+static const uint32_t KEY_TEAM_2056 = 2056;
+static const char *VALUE_2056 = "OP Robotics";
 
 // Calculate the buffer size that is needed for the final Dictionary:
-const uint8_t key_count = 15;
+const uint8_t key_count = 17;
 
 const uint32_t size = dict_calc_buffer_size(key_count, strlen(VALUE_610) + 1,
                                            strlen(VALUE_254) + 1,
@@ -88,7 +91,8 @@ const uint32_t size = dict_calc_buffer_size(key_count, strlen(VALUE_610) + 1,
                                            strlen(VALUE_1334) + 1,
                                            strlen(VALUE_1547) + 1,
                                            strlen(VALUE_1815) + 1,
-                                           strlen(VALUE_2013) + 1);
+                                           strlen(VALUE_2013) + 1,
+                                           strlen(VALUE_2056) + 1);
   
 
   
@@ -117,6 +121,8 @@ dict_write_cstring(&iter, KEY_TEAM_1334, VALUE_1334);
 dict_write_cstring(&iter, KEY_TEAM_1547, VALUE_1547);
 dict_write_cstring(&iter, KEY_TEAM_1815, VALUE_1815);
 dict_write_cstring(&iter, KEY_TEAM_2013, VALUE_2013);
+dict_write_cstring(&iter, KEY_TEAM_2056, VALUE_2056);
+
 // End:
   
 const uint32_t final_size = dict_write_end(&iter);
@@ -162,13 +168,14 @@ static void main_window_load(Window *window) {
   GRect bounds = layer_get_bounds(window_layer);
 
   // Create GBitmap
-  s_background_bitmap = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_BACKGROUND);
+  s_background_bitmap = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_BACKGROUND_NEW);
 
   // Create BitmapLayer to display the GBitmap
-  s_background_layer = bitmap_layer_create(GRect(0, PBL_IF_ROUND_ELSE(5, 1), bounds.size.w, 150));
+  s_background_layer = bitmap_layer_create(GRect(0, PBL_IF_ROUND_ELSE(5, 1), bounds.size.w, 110));
 
   // Set the bitmap onto the layer and add to the window
   bitmap_layer_set_bitmap(s_background_layer, s_background_bitmap);
+  bitmap_layer_set_compositing_mode(s_background_layer, GCompOpSet);
   layer_add_child(window_layer, bitmap_layer_get_layer(s_background_layer));
 
   // Create the TextLayer with specific bounds
@@ -177,7 +184,7 @@ static void main_window_load(Window *window) {
 
   // Improve the layout to be more like a watchface
   text_layer_set_background_color(s_time_layer, GColorClear);
-  text_layer_set_text_color(s_time_layer, GColorRajah);
+  text_layer_set_text_color(s_time_layer, GColorRed);
   text_layer_set_text(s_time_layer, "ballsohard");
   text_layer_set_text_alignment(s_time_layer, GTextAlignmentCenter);
   text_layer_set_font(s_time_layer, fonts_get_system_font(FONT_KEY_BITHAM_42_BOLD));
@@ -212,7 +219,7 @@ static void init() {
   s_main_window = window_create();
 
   // Set the background color
-  window_set_background_color(s_main_window, GColorBlack);
+  window_set_background_color(s_main_window, GColorWhite);
 
   // Set handlers to manage the elements inside the Window
   window_set_window_handlers(s_main_window, (WindowHandlers) {
