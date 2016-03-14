@@ -31,6 +31,9 @@ static const char *VALUE_610 = "The Coyotes";
 static const uint32_t KEY_TEAM_746 = 746;
 static const char *VALUE_746 = "Gearheads";
   
+static const uint32_t KEY_TEAM_746 = 854;
+static const char *VALUE_746 = "Iron Bears";
+
 static const uint32_t KEY_TEAM_857 = 857;
 static const char *VALUE_857 = "Superior Roboworks";
   
@@ -79,6 +82,7 @@ const uint8_t key_count = 17;
 const uint32_t size = dict_calc_buffer_size(key_count, strlen(VALUE_610) + 1,
                                            strlen(VALUE_254) + 1,
                                            strlen(VALUE_746) + 1,
+					strlen(VALUE_854)+1,
                                            strlen(VALUE_857) + 1,
                                            strlen(VALUE_907) + 1,
                                            strlen(VALUE_919) + 1,
@@ -108,6 +112,7 @@ dict_write_begin(&iter, buffer, sizeof(buffer));
 dict_write_cstring(&iter, KEY_TEAM_254, VALUE_254);  
 dict_write_cstring(&iter, KEY_TEAM_610, VALUE_610);
 dict_write_cstring(&iter, KEY_TEAM_746, VALUE_746);
+dict_write_cstring(&iter, KEY_TEAM_746, VALUE_854);
 dict_write_cstring(&iter, KEY_TEAM_857, VALUE_857);
 dict_write_cstring(&iter, KEY_TEAM_907, VALUE_907);
 dict_write_cstring(&iter, KEY_TEAM_919, VALUE_919);
