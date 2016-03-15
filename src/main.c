@@ -31,8 +31,8 @@ static const char *VALUE_610 = "The Coyotes";
 static const uint32_t KEY_TEAM_746 = 746;
 static const char *VALUE_746 = "Gearheads";
   
-static const uint32_t KEY_TEAM_746 = 854;// changed this PK
-static const char *VALUE_746 = "Iron Bears";
+static const uint32_t KEY_TEAM_854 = 854;// changed this PK
+static const char *VALUE_854 = "Iron Bears";
 
 static const uint32_t KEY_TEAM_857 = 857;
 static const char *VALUE_857 = "Superior Roboworks";
@@ -112,7 +112,7 @@ dict_write_begin(&iter, buffer, sizeof(buffer));
 dict_write_cstring(&iter, KEY_TEAM_254, VALUE_254);  
 dict_write_cstring(&iter, KEY_TEAM_610, VALUE_610);
 dict_write_cstring(&iter, KEY_TEAM_746, VALUE_746);
-dict_write_cstring(&iter, KEY_TEAM_746, VALUE_854);//changed this PK
+dict_write_cstring(&iter, KEY_TEAM_854, VALUE_854);//changed this PK
 dict_write_cstring(&iter, KEY_TEAM_857, VALUE_857);
 dict_write_cstring(&iter, KEY_TEAM_907, VALUE_907);
 dict_write_cstring(&iter, KEY_TEAM_919, VALUE_919);
