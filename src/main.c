@@ -45,6 +45,9 @@ static const char *VALUE_610 = "The Coyotes";
 static const uint32_t KEY_TEAM_746 = 746;
 static const char *VALUE_746 = "Gearheads";
   
+  static const uint32_t KEY_TEAM_854 = 854;
+  static const char *VALUE_854 = "Iron Bears";
+  
 static const uint32_t KEY_TEAM_857 = 857;
 static const char *VALUE_857 = "Superior Roboworks";
   
@@ -86,6 +89,9 @@ static const char *VALUE_2013 = "Cybergnomes";
   
 static const uint32_t KEY_TEAM_2056 = 2056;
 static const char *VALUE_2056 = "OP Robotics";
+  
+  static const uint32_t KEY_TEAM_2200= 2200;
+  static const char *VALUE_2200= "MMRambotics";
 
 
 
@@ -94,7 +100,7 @@ static const char *VALUE_2056 = "OP Robotics";
 /* uint8_t key_count should be the number of teams in the list ***********************/
 /*************************************************************************************/
 
-const uint8_t key_count = 17;
+const uint8_t key_count = 19;
 
   
 /*************************************************************************************/
@@ -105,6 +111,7 @@ const uint8_t key_count = 17;
 const uint32_t size = dict_calc_buffer_size(key_count, strlen(VALUE_610) + 1,
                                            strlen(VALUE_254) + 1,
                                            strlen(VALUE_746) + 1,
+                                            strlen(VALUE_854) +1,
                                            strlen(VALUE_857) + 1,
                                            strlen(VALUE_907) + 1,
                                            strlen(VALUE_919) + 1,
@@ -118,7 +125,8 @@ const uint32_t size = dict_calc_buffer_size(key_count, strlen(VALUE_610) + 1,
                                            strlen(VALUE_1547) + 1,
                                            strlen(VALUE_1815) + 1,
                                            strlen(VALUE_2013) + 1,
-                                           strlen(VALUE_2056) + 1);
+                                           strlen(VALUE_2056) + 1,
+                                            strlen(VALUE_2200) + 1) ;
   
 
   
@@ -138,6 +146,7 @@ dict_write_begin(&iter, buffer, sizeof(buffer));
 dict_write_cstring(&iter, KEY_TEAM_254, VALUE_254);  
 dict_write_cstring(&iter, KEY_TEAM_610, VALUE_610);
 dict_write_cstring(&iter, KEY_TEAM_746, VALUE_746);
+dict_write_cstring(&iter, KEY_TEAM_854, VALUE_854);
 dict_write_cstring(&iter, KEY_TEAM_857, VALUE_857);
 dict_write_cstring(&iter, KEY_TEAM_907, VALUE_907);
 dict_write_cstring(&iter, KEY_TEAM_919, VALUE_919);
@@ -152,6 +161,7 @@ dict_write_cstring(&iter, KEY_TEAM_1547, VALUE_1547);
 dict_write_cstring(&iter, KEY_TEAM_1815, VALUE_1815);
 dict_write_cstring(&iter, KEY_TEAM_2013, VALUE_2013);
 dict_write_cstring(&iter, KEY_TEAM_2056, VALUE_2056);
+dict_write_cstring(&iter, KEY_TEAM_2200, VALUE_2200);
 
 // End:
 

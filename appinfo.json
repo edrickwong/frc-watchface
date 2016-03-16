@@ -10,6 +10,12 @@
     "resources": {
         "media": [
             {
+                "file": "images/oneColor.png",
+                "name": "IMAGE_BACKGROUND_NEWER",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
                 "file": "images/frc_new.png",
                 "name": "IMAGE_BACKGROUND_NEW",
                 "targetPlatforms": null,
