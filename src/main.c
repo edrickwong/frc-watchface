@@ -225,7 +225,7 @@ static void main_window_load(Window *window) {
   GRect bounds = layer_get_bounds(window_layer);
 
   // Create GBitmap
-  s_background_bitmap = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_BACKGROUND_NEW);
+  s_background_bitmap = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_BACKGROUND_NEWER);
 
   // Create BitmapLayer to display the GBitmap
   s_background_layer = bitmap_layer_create(GRect(0, PBL_IF_ROUND_ELSE(5, 1), bounds.size.w, 110));
