@@ -78,6 +78,9 @@ static const char *VALUE_1325 = "Inverse Paradox";
 static const uint32_t KEY_TEAM_1334 = 1334;
 static const char *VALUE_1334 = "Red Devils";
   
+  static const uint32_t KEY_TEAM_1400= 1360;
+  static const char *VALUE_1360="Orbit Robotics"; 
+  
 static const uint32_t KEY_TEAM_1547 = 1547;
 static const char *VALUE_1547 = "Where's Waldo?";
   
@@ -100,7 +103,7 @@ static const char *VALUE_2056 = "OP Robotics";
 /* uint8_t key_count should be the number of teams in the list ***********************/
 /*************************************************************************************/
 
-const uint8_t key_count = 19;
+const uint8_t key_count = 20;
 
   
 /*************************************************************************************/
@@ -120,6 +123,7 @@ const uint32_t size = dict_calc_buffer_size(key_count, strlen(VALUE_610) + 1,
                                            strlen(VALUE_1246) + 1,
                                            strlen(VALUE_1305) + 1,
                                            strlen(VALUE_1310) + 1,
+                                            strlen(VALUE_1360)+ 1,
                                            strlen(VALUE_1325) + 1,
                                            strlen(VALUE_1334) + 1,
                                            strlen(VALUE_1547) + 1,
@@ -157,6 +161,7 @@ dict_write_cstring(&iter, KEY_TEAM_1305, VALUE_1305);
 dict_write_cstring(&iter, KEY_TEAM_1310, VALUE_1310);
 dict_write_cstring(&iter, KEY_TEAM_1325, VALUE_1325);
 dict_write_cstring(&iter, KEY_TEAM_1334, VALUE_1334);
+  dict_write_cstring(&iter, KEY_TEAM_1400, VALUE_1360);
 dict_write_cstring(&iter, KEY_TEAM_1547, VALUE_1547);
 dict_write_cstring(&iter, KEY_TEAM_1815, VALUE_1815);
 dict_write_cstring(&iter, KEY_TEAM_2013, VALUE_2013);
